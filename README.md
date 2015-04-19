@@ -1,7 +1,50 @@
 # mruby_better_backtrace_snipet
 mruby better backtrace snipet
 
-show exception_better_backtrace_snipet.rb
+When this code run on mruby,
+
+```ruby
+def g
+  raise "test"
+end
+
+def f
+  begin
+    g
+  rescue => e
+    raise e
+  end
+end
+
+begin
+  f
+rescue => e
+  puts "e.backtrace"
+  puts "#{e.backtrace.map{|v| "  " + v}.join("\n")}"
+end
+
+```
+
+you get following.
+
+```
+e.backtrace
+  exception_default.rb:18
+
+```
+
+if you add code from exception_better_backtrace_snipet.rb
+
+you get following
+
+```
+e.backtrace
+  exception_better_backtrace.rb:37:in Object.g
+  exception_better_backtrace.rb:42:in Object.f
+  exception_better_backtrace.rb:49
+```
+
+I prfefer this.
 
 # run　test
 
