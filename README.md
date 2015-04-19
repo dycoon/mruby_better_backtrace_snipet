@@ -1,10 +1,13 @@
 # mruby_better_backtrace_snipet
 mruby better backtrace snipet
 
-# run
+show exception_better_backtrace_snipet.rb
+
+# run　test
 
 ```
-#ruby setup.rb
+# cd test
+# ruby setup.rb
 
 ... build ruby ...
 
